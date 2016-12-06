@@ -9,7 +9,7 @@ public class WorkerManager {
 	private boolean breakmode;
 	private volatile Population pop;
 	
-	private final String server_address = "https://dronegraph-alphonse-elric.c9users.io/";
+	private final String server_address = "http://10.0.0.5:8080/";
 	private ConnectionManager cm;
 	
 	private class worker extends Thread{

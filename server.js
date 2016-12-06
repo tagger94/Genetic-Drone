@@ -5,6 +5,9 @@ var io = require('socket.io')(http);
 var path = require('path');
 
 
+http.listen(3000, function(){
+  console.log('listening on *:8080');
+});
 
 app.use(express.static(path.join(__dirname, 'public')));
 

@@ -1,8 +1,11 @@
 package gdrone;
 
-import java.net.MalformedURLException;
+import io.socket.IOAcknowledge;
+import io.socket.IOCallback;
+import io.socket.SocketIO;
+import io.socket.SocketIOException;
 
-import io.socket.*;
+import java.net.MalformedURLException;
 
 import org.json.JSONArray;
 import org.json.JSONException;
