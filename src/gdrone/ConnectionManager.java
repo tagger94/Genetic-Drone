@@ -26,7 +26,7 @@ public class ConnectionManager implements IOCallback {
 	
 	public void emitPopulation(Population pop) {
 		JSONObject json = new JSONObject();
-		JSONArray ja = new JSONArray();
+//		JSONArray ja = new JSONArray();
 		try {
 			//Add max, mean, min
 			json.put("max", pop.getMaxDistance());
@@ -34,8 +34,8 @@ public class ConnectionManager implements IOCallback {
 			json.put("mean", pop.getMeanDistance());
 			
 			//Add Fittest Route
-			ja.put(pop.getFittest().getParcelArray());
-			json.put("bestRoute", ja);
+//			ja.put(pop.getFittest().getParcelArray());
+//			json.put("bestRoute", ja);
 			
 			socket.emit("generation", json);
 		} catch (JSONException e) {
@@ -43,6 +43,15 @@ public class ConnectionManager implements IOCallback {
 			e.printStackTrace();
 		}
 	
+	}
+	
+	public void emitBestRoute(Population pop) {
+		JSONArray ja = new JSONArray();
+		
+		//Add Fittest Route
+		ja.put(pop.getFittest().getParcelArray());
+		
+		socket.emit("bestRoute", ja);
 	}
 
 	@Override
