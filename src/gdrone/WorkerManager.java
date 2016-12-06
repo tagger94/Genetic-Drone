@@ -8,6 +8,7 @@ public class WorkerManager {
 	private int num_threads;
 	private boolean breakmode;
 	private volatile Population pop;
+	
 	private final String server_address = "https://dronegraph-alphonse-elric.c9users.io/";
 	private ConnectionManager cm;
 	
@@ -41,6 +42,7 @@ public class WorkerManager {
 			run_workers(i*step_by,(i*step_by)+step_by);
 		}
 		
+
 		//pause after each generation and wait until calc is done
 		if(breakmode){
 			cont = false;
