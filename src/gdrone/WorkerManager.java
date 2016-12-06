@@ -9,8 +9,8 @@ public class WorkerManager {
 	private boolean breakmode;
 	private volatile Population pop;
 	
-	private final String server_address = "http://10.0.0.5:8080/";
-	private ConnectionManager cm;
+//	private final String server_address = "http://10.0.0.5:8080/";
+//	private ConnectionManager cm;
 	
 	private class worker extends Thread{
 		private ArrayList<Route> r = new ArrayList<Route>();
@@ -30,7 +30,7 @@ public class WorkerManager {
 		this.pop = pop;
 		this.num_threads = num_threads;
 		cont = true;
-		cm = new ConnectionManager(server_address);
+//		cm = new ConnectionManager(server_address);
 	}
 	
 	//recursevly do goto_gen number of generations 
@@ -51,12 +51,12 @@ public class WorkerManager {
 		}
 		
 		//Send calc to server
-		cm.emitPopulation(pop);
+//		cm.emitPopulation(pop);
 		
 		//Start new generation
 		pop = GA.evolvePopulation(pop);
 		
-//		System.out.println("gen number: " + curr_gen + " " + pop.getFittest().getDistance());
+		System.out.println("gen number: " + curr_gen + " " + pop.getFittest().getDistance());
 
 		if(curr_gen == goto_gen){
 			return;
