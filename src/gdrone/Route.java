@@ -92,6 +92,10 @@ public class Route {
 	public boolean containsParcel(Parcel parcel) {
 		return route.contains(parcel);
 	}
+	
+	public Parcel[] getParcelArray() {
+		return (Parcel[]) route.toArray();
+	}
 
 	@Override
 	public String toString() {

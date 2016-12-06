@@ -9,6 +9,11 @@ public class Population {
 
 	// Holds list of routes
 	Route[] routes;
+	
+	// Holds values for statics of population
+	private double max = 0;
+	private double min = 0;
+	private double mean = 0;
 
 	// Construct a population
 	public Population(int populationSize, boolean initialise) {
@@ -49,5 +54,49 @@ public class Population {
 	// Gets population size
 	public int populationSize() {
 		return routes.length;
+	}
+	
+	public double getMaxDistance() {
+		if(max == 0) {
+			calcStats();
+		}
+		return max;
+	}
+	
+	public double getMinDistance() {
+		if(max == 0) {
+			calcStats();
+		}
+		return min;
+	}
+	
+	public double getMeanDistance() {
+		if(max == 0) {
+			calcStats();
+		}
+		return mean;
+	}
+	
+	public void calcStats(){
+		//Set initial Value
+		this.max = this.routes[0].getDistance();
+		this.min = this.routes[0].getDistance();
+		double sum = this.routes[0].getDistance();
+		
+		for (int i = 1; i < routes.length; i++){
+			double dist = routes[i].getDistance();
+			
+			//Find if it is max or min
+			if(dist < this.max){
+				
+			} else if(dist > this.min){
+				
+			}
+			
+			//Add it to the sum
+			sum += dist;
+		}
+		
+		this.mean = sum / this.routes.length;
 	}
 }

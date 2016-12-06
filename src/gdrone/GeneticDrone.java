@@ -8,6 +8,10 @@ package gdrone;
 public class GeneticDrone {
 
 	public static void main(String[] args) {
+		
+		String server_address = "https://dronegraph-alphonse-elric.c9users.io/";
+		
+		ConnectionManager cm = new ConnectionManager(server_address);
 
 		// Create and add our parcels		
 		for (int i = 0; i < 1000; i++) {
@@ -23,6 +27,7 @@ public class GeneticDrone {
 		pop = GA.evolvePopulation(pop);
 		for (int i = 0; i < 1000; i++) {
 			pop = GA.evolvePopulation(pop);
+			cm.emitPopulation(pop);
 			
 			//Worker stuff goes here
 			//workerManager(pop)
@@ -35,3 +40,4 @@ public class GeneticDrone {
 		System.out.println(pop.getFittest());
 	}
 }
+
