@@ -15,7 +15,7 @@ import gdrone.Route;
 import gdrone.Parcel;
 import javafx.application.Application;
 
-public class JavafxTests extends Application {
+public class FinalPathGraph extends Application {
 
 	final NumberAxis xAxis = new NumberAxis();
 	final NumberAxis yAxis = new NumberAxis();
@@ -62,11 +62,17 @@ public class JavafxTests extends Application {
 		// sbc.getData().addAll(createbar1Series(), createbar2Series(),
 		// createbar3Series());
 		lineChart.getData().addAll(createChartSeries());
+		
+		lineChart.setMinWidth(1600);
+		lineChart.setMinHeight(900);
+		lineChart.setTitle("Final Path");
 
 		FlowPane pane = new FlowPane(Orientation.HORIZONTAL);
+		//pane.setPrefHeight(500);
 		pane.getChildren().addAll(lineChart);
 
 		Scene scene = new Scene(pane);
+		
 
 		stage.setScene(scene);
 		stage.show();
