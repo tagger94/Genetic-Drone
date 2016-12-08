@@ -56,7 +56,6 @@ public class WorkerManager {
 		//Start new generation
 		pop = GA.evolvePopulation(pop);
 		
-		System.out.println("gen number: " + curr_gen + " " + pop.getFittest().getDistance());
 
 		if(curr_gen == goto_gen){
 			return;

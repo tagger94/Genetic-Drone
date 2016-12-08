@@ -6,13 +6,13 @@
 package gdrone;
 
 public class GeneticDrone {
+	
+	public static Population finalPop = null;
 
-	public static void main(String[] args) {
-		
-		
+	public static void run() {
 
 		// Create and add our parcels		
-		for (int i = 0; i < 1000; i++) {
+		for (int i = 0; i < 50; i++) {
 			ParcelList.addParcel(new Parcel());
 		}
 
@@ -23,11 +23,12 @@ public class GeneticDrone {
 		WorkerManager wm = new WorkerManager(pop,50,false);
 		wm.run_workermanager(0, 1000);
 
+		finalPop = pop;
 		// Print final results
 		System.out.println("Finished");
 		System.out.println("Final distance: " + pop.getFittest().getDistance());
-		System.out.println("Solution:");
-		System.out.println(pop.getFittest());
+		
+		finalPop = pop;
 	}
 }
 

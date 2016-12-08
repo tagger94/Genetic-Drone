@@ -41,6 +41,11 @@ public class GA {
 			mutate(newPopulation.getRoute(i));
 		}
 		
+		if (elitism) {
+			newPopulation.saveRoute(0, pop.getFittest());
+			elitismOffset = 1;
+		}
+		
 
 		return newPopulation;
 	}
@@ -53,41 +58,6 @@ public class GA {
 		} else {
 			return parent2;
 		}
-		
-//		Route child = new Route();
-//
-//		// Get start and end sub route positions for parent1's route
-//		int startPos = (int) (Math.random() * parent1.routeSize());
-//		int endPos = (int) (Math.random() * parent1.routeSize());
-//
-//		// Loop and add the sub route from parent1 to our child
-//		for (int i = 0; i < child.routeSize(); i++) {
-//			// If our start position is less than the end position
-//			if (startPos < endPos && i > startPos && i < endPos) {
-//				child.setParcel(i, parent1.getParcel(i));
-//			} // If our start position is larger
-//			else if (startPos > endPos) {
-//				if (!(i < startPos && i > endPos)) {
-//					child.setParcel(i, parent1.getParcel(i));
-//				}
-//			}
-//		}
-//
-//		// Loop through parent2's parcel route
-//		for (int i = 0; i < parent2.routeSize(); i++) {
-//			// If child doesn't have the parcel add it
-//			if (!child.containsParcel(parent2.getParcel(i))) {
-//				// Loop to find a spare position in the child's route
-//				for (int ii = 0; ii < child.routeSize(); ii++) {
-//					// Spare position found, add parcel
-//					if (child.getParcel(ii) == null) {
-//						child.setParcel(ii, parent2.getParcel(i));
-//						break;
-//					}
-//				}
-//			}
-//		}
-//		return child;
 	}
 
 	// Mutate a route using swap mutation

@@ -11,8 +11,8 @@ public class Parcel {
 
 	// Constructs a randomly placed parcel
 	public Parcel() {
-		this.x = (int) (Math.random() * 200);
-		this.y = (int) (Math.random() * 200);
+		this.x = (int) (Math.random() * 50000);
+		this.y = (int) (Math.random() * 50000);
 	}
 
 	// Constructs a parcel at chosen x, y location

@@ -96,6 +96,10 @@ public class Route {
 	public Parcel[] getParcelArray() {
 		return (Parcel[]) route.toArray();
 	}
+	
+	public ArrayList<Parcel> getParcelArrayList() {
+		return route;
+	}
 
 	@Override
 	public String toString() {
